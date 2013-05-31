@@ -68,6 +68,9 @@ public class CalculatorTest {
 		}
 
 	}
-	
+	@Test
+	public void testReturnOfANumberBiggerThan1000() {
+		assertEquals(2, Calculator.add("2,1111"));
+	}
 }
 // https://github.com/quynhlt/stringcaculator
