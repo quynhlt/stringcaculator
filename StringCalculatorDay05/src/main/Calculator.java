@@ -19,7 +19,7 @@ public class Calculator {
 		int result = 0;
 		if (number.isEmpty()) {
 			result = 0;
-		} else if (number.contains(COMMAS)) {
+		} else {
 			String[] tokens = getToken(number);
 			for (String token : tokens) {
 				result += toInt(token);
@@ -33,6 +33,6 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		return number.split(COMMAS);
+		return number.split(COMMAS + "|\n");
 	}
 }
