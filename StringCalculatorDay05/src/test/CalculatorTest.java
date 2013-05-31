@@ -31,5 +31,11 @@ public class CalculatorTest {
 	public void testReturnOfTwoNumberWithCommas() {
 		assertEquals(3, Calculator.add("1,2"));
 	}
+
+	/* Allow the Add method to handle an unknown amount of numbers */
+	@Test
+	public void testReturnOfMultiNumbersWithCommas() {
+		assertEquals(6, Calculator.add("1,2,3"));
+	}
 }
 // https://github.com/quynhlt/stringcaculator

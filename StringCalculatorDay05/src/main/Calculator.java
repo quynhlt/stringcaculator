@@ -9,6 +9,8 @@ package main;
  */
 public class Calculator {
 
+	private static final String COMMAS = ",";
+
 	public static void main(String[] args) {
 		add("1,2");
 	}
@@ -17,10 +19,10 @@ public class Calculator {
 		int result = 0;
 		if (number.isEmpty()) {
 			result = 0;
-		} else if(number.contains(",")){
-			String[] token = number.split(",");
+		} else if (number.contains(COMMAS)) {
+			String[] token = number.split(COMMAS);
 			result = Integer.parseInt(token[0]) + Integer.parseInt(token[1]);
-		} else{
+		} else {
 			result = Integer.parseInt(number);
 		}
 		return result;
