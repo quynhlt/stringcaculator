@@ -35,7 +35,7 @@ public class CalculatorTest {
 	/* Allow the Add method to handle an unknown amount of numbers */
 	@Test
 	public void testReturnOfMultiNumbersWithCommas() {
-		assertEquals(6, Calculator.add("1,2,3"));
+		assertEquals(4, Calculator.add("1,2,1"));
 	}
 }
 // https://github.com/quynhlt/stringcaculator
