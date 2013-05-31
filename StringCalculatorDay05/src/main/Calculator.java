@@ -13,6 +13,7 @@ public class Calculator {
 	private static final String OR = "|";
 	private static final String NEWLINE = "\n";
 	private static final String SEPARATE = "//";
+	private static final int MAXNUMBER = 1000;
 
 	public static void main(String[] args) {
 		add("1,2");
@@ -35,7 +36,7 @@ public class Calculator {
 		int newInt = Integer.parseInt(number);
 		if (newInt < 0) {
 			throw new RuntimeException("Negatives not allowed");
-		} else if (newInt > 1000) {
+		} else if (newInt > MAXNUMBER) {
 			newInt = 0;
 		}
 		return newInt;
