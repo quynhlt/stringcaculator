@@ -35,6 +35,12 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		return number.split(COMMAS + OR+ NEWLINE);
+		if (number.startsWith("//")) {
+			String newDelimiter = number.substring(2, 3);
+			
+			String newText = number.substring(4);
+			return newText.split(newDelimiter);
+		}
+		return number.split(COMMAS + OR + NEWLINE);
 	}
 }
