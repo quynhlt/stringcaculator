@@ -9,9 +9,9 @@ package main;
  */
 public class Calculator {
 
-	public static Object add(String string) {
+	public static int add(String string) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	
