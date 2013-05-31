@@ -53,11 +53,12 @@ public class CalculatorTest {
 	public void testReturnOfDifferentDelimiters() {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
-	
+
 	@Test
 	public void testReturnOfOtherDelimiters() {
 		assertEquals(3, Calculator.add("//&\n1&2"));
 	}
+
 	@Test
 	public void testCallingAddWithANegativeNumber() {
 		try {
@@ -68,9 +69,20 @@ public class CalculatorTest {
 		}
 
 	}
+
 	@Test
 	public void testReturnOfANumberBiggerThan1000() {
 		assertEquals(2, Calculator.add("2,1111"));
+	}
+
+	@Test
+	public void testReturnOfMultiNumbersBiggerThan1000() {
+		assertEquals(1, Calculator.add("1,1111,2222"));
+	}
+
+	@Test
+	public void testReturnOfDelimWithAnyLength() {
+		assertEquals(3, Calculator.add("//[@@@]\n1@@@2"));
 	}
 }
 // https://github.com/quynhlt/stringcaculator
