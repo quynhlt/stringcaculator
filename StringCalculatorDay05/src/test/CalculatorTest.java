@@ -4,6 +4,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import main.Calculator;
 
 import org.junit.Test;
@@ -52,5 +53,21 @@ public class CalculatorTest {
 	public void testReturnOfDifferentDelimiters() {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
+	
+	@Test
+	public void testReturnOfOtherDelimiters() {
+		assertEquals(3, Calculator.add("//&\n1&2"));
+	}
+	@Test
+	public void testCallingAddWithANegativeNumber() {
+		try {
+			assertEquals(0, Calculator.add("-1,2,3"));
+			fail("Runtime Exception");
+		} catch (RuntimeException e) {
+			assertEquals("Negatives not allowed", e.getMessage());
+		}
+
+	}
+	
 }
 // https://github.com/quynhlt/stringcaculator

@@ -38,8 +38,7 @@ public class Calculator {
 	private static String[] getToken(String number) {
 		if (number.startsWith(SEPARATE)) {
 			int startIndex = SEPARATE.length();
-			
-			String newDelim = number.substring(startIndex, startIndex+1);
+			String newDelim = number.substring(startIndex, startIndex + 1);
 			startIndex = (SEPARATE + newDelim + NEWLINE).length();
 			String newText = number.substring(startIndex, number.length());
 			return newText.split(newDelim);
