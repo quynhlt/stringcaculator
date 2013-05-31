@@ -20,11 +20,17 @@ public class Calculator {
 		if (number.isEmpty()) {
 			result = 0;
 		} else if (number.contains(COMMAS)) {
-			String[] token = number.split(COMMAS);
-			result = Integer.parseInt(token[0]) + Integer.parseInt(token[1]);
+			String[] tokens = getToken(number);
+			for (String token : tokens) {
+				result += Integer.parseInt(token);
+			}
 		} else {
 			result = Integer.parseInt(number);
 		}
 		return result;
+	}
+
+	private static String[] getToken(String number) {
+		return number.split(COMMAS);
 	}
 }
