@@ -26,6 +26,7 @@ public class CalculatorTest {
 	public void testReturnOfOneNumber() {
 		assertEquals(1, Calculator.add("1"));
 	}
+
 	@Test
 	public void testReturnOfTwoNumberWithCommas() {
 		assertEquals(3, Calculator.add("1,2"));
