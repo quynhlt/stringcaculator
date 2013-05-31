@@ -10,6 +10,8 @@ package main;
 public class Calculator {
 
 	private static final String COMMAS = ",";
+	private static final String OR = "|";
+	private static final String NEWLINE = "\n";
 
 	public static void main(String[] args) {
 		add("1,2");
@@ -33,6 +35,6 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		return number.split(COMMAS + "|\n");
+		return number.split(COMMAS + OR+ NEWLINE);
 	}
 }
