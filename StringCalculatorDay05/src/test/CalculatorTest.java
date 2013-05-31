@@ -22,5 +22,13 @@ public class CalculatorTest {
 		assertEquals(0, Calculator.add(""));
 	}
 
+	@Test
+	public void testReturnOfOneNumber() {
+		assertEquals(1, Calculator.add("1"));
+	}
+	@Test
+	public void testReturnOfTwoNumberWithCommas() {
+		assertEquals(3, Calculator.add("1,2"));
+	}
 }
 // https://github.com/quynhlt/stringcaculator
