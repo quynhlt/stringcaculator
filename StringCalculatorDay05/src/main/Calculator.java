@@ -22,12 +22,14 @@ public class Calculator {
 		} else if (number.contains(COMMAS)) {
 			String[] tokens = getToken(number);
 			for (String token : tokens) {
-				result += Integer.parseInt(token);
+				result += toInt(token);
 			}
-		} else {
-			result = Integer.parseInt(number);
 		}
 		return result;
+	}
+
+	private static int toInt(String number) {
+		return Integer.parseInt(number);
 	}
 
 	private static String[] getToken(String number) {
