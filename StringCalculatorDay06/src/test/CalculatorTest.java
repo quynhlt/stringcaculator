@@ -37,4 +37,9 @@ public class CalculatorTest {
 	public void testReturnOfDifferentDelimiters() {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
+
+	@Test
+	public void testReturnOfOtherDelimiters() {
+		assertEquals(6, Calculator.add("//&\n1&2&3"));
+	}
 }
