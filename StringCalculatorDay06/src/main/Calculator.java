@@ -15,6 +15,8 @@ public class Calculator {
 	private static final String SEPARATE = "//";
 	public static final String ERROR_RUNTIME = "Negatives not allowed";
 	private static final int MAXNUMBER = 1000;
+	private static final CharSequence SQUARE_BRACKET_LEFT = "[";
+	private static final CharSequence SQUARE_BRACKET_RIGHT = "]";
 
 	public static void main(String[] args) {
 		Calculator.add("//&\n1&2&3");
@@ -40,9 +42,9 @@ public class Calculator {
 			String newDelim = number.substring(start, end);
 			int newIndex = (SEPARATE + newDelim + NEWLINE).length();
 			if (newDelim.length() > 0) {
-				newDelim = newDelim.replace("[", "").replace("]", "");
+				newDelim = newDelim.replace(SQUARE_BRACKET_LEFT, "").replace(SQUARE_BRACKET_RIGHT, "");
 			}
-			
+
 			String newText = number.substring(newIndex, number.length());
 			System.out.println(newText);
 			return newText.split(newDelim);
