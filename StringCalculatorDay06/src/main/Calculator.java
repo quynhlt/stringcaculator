@@ -14,6 +14,7 @@ public class Calculator {
 	private static final String NEWLINE = "\n";
 	private static final String SEPARATE = "//";
 	public static final String ERROR_RUNTIME = "Negatives not allowed";
+	private static final int MAXNUMBER = 1000;
 
 	public static void main(String[] args) {
 		Calculator.add("//&\n1&2&3");
@@ -50,7 +51,7 @@ public class Calculator {
 		int newInt = Integer.parseInt(number);
 		if (newInt < 0) {
 			throw new RuntimeException(ERROR_RUNTIME);
-		} else if (newInt > 1000) {
+		} else if (newInt > MAXNUMBER) {
 			newInt = 0;
 		}
 		return newInt;
