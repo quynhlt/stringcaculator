@@ -39,6 +39,10 @@ public class Calculator {
 			int end = number.indexOf(NEWLINE);
 			String newDelim = number.substring(start, end);
 			int newIndex = (SEPARATE + newDelim + NEWLINE).length();
+			if (newDelim.length() > 0) {
+				newDelim = newDelim.replace("[", "").replace("]", "");
+			}
+			
 			String newText = number.substring(newIndex, number.length());
 			System.out.println(newText);
 			return newText.split(newDelim);
