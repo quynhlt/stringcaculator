@@ -16,7 +16,7 @@ public class Calculator {
 	private static final int MAXNUMBER = 1000;
 
 	public static void main(String[] args) {
-		add("1,2");
+		add("//[@@@]\n1@@@2");
 	}
 
 	public static int add(String number) {
@@ -45,9 +45,14 @@ public class Calculator {
 	private static String[] getToken(String number) {
 		if (number.startsWith(SEPARATE)) {
 			int startIndex = SEPARATE.length();
-			String newDelim = number.substring(startIndex, startIndex + 1);
+			int endIndex = number.indexOf(NEWLINE);
+			String newDelim = number.substring(startIndex, endIndex);
+			if (newDelim.length() > 0) {
+				newDelim = newDelim.replace("[", "").replace("]", "");
+			}
 			startIndex = (SEPARATE + newDelim + NEWLINE).length();
 			String newText = number.substring(startIndex, number.length());
+			System.out.println(newText);
 			return newText.split(newDelim);
 		} else {
 			return number.split(COMMAS + OR + NEWLINE);
