@@ -42,7 +42,7 @@ public class CalculatorTest {
 	public void testReturnOfOtherDelimiters() {
 		assertEquals(6, Calculator.add("//&\n1&2&3"));
 	}
-	
+
 	@Test
 	public void testCallingAddWithANegativeNumber() {
 		try {
@@ -52,5 +52,10 @@ public class CalculatorTest {
 			assertEquals(Calculator.ERROR_RUNTIME, e.getMessage());
 		}
 
+	}
+
+	@Test
+	public void testReturnOfNumberBiggerThan1000() {
+		assertEquals(1, Calculator.add("1,1212"));
 	}
 }
