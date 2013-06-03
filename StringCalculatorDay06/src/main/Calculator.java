@@ -15,7 +15,7 @@ public class Calculator {
 	private static final String SEPARATE = "//";
 
 	public static void main(String[] args) {
-		Calculator.add("//;\n1;2");
+		Calculator.add("//&\n1&2&3");
 	}
 
 	public static int add(String number) {
@@ -32,12 +32,13 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		if (number.contains(SEPARATE)) {
+		if (number.startsWith(SEPARATE)) {
 			int start = SEPARATE.length();
-			String newDelim = number.substring(start, start + 1);
-			start = start + newDelim.length();
+			int end = number.indexOf(NEWLINE);
+			String newDelim = number.substring(start, end);
+			start = (SEPARATE + newDelim + NEWLINE).length();
 			String newText = number.substring(start, number.length());
-			System.out.print(newDelim + "");
+			System.out.println(newText);
 			return newText.split(newDelim);
 		} else {
 			return number.split(COMMAS + OR + NEWLINE);
