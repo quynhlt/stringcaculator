@@ -36,8 +36,8 @@ public class Calculator {
 			int start = SEPARATE.length();
 			int end = number.indexOf(NEWLINE);
 			String newDelim = number.substring(start, end);
-			start = (SEPARATE + newDelim + NEWLINE).length();
-			String newText = number.substring(start, number.length());
+			int newIndex = (SEPARATE + newDelim + NEWLINE).length();
+			String newText = number.substring(newIndex, number.length());
 			System.out.println(newText);
 			return newText.split(newDelim);
 		} else {
