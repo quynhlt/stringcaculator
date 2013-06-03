@@ -13,6 +13,10 @@ public class Calculator {
 	private static final String OR = "|";
 	private static final String NEWLINE = "\n";
 
+	public static void main(String[] args) {
+		Calculator.add("//;\n1;2");
+	}
+
 	public static int add(String number) {
 		int result = 0;
 		if (number.isEmpty()) {
@@ -27,7 +31,14 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		return number.split(COMMAS + OR + NEWLINE);
+		if (number.contains("//")) {
+			String newDelim = number.substring(2, 3);
+			String newText = number.substring(4, number.length());
+			System.out.print(newDelim+"");
+			return newText.split(newDelim);
+		} else {
+			return number.split(COMMAS + OR + NEWLINE);
+		}
 	}
 
 	private static int toInt(String number) {
