@@ -16,8 +16,12 @@ public class Calculator {
 		if (number.isEmpty()) {
 			result = 0;
 		} else if (number.contains(COMMAS)) {
+
 			String[] tokens = number.split(COMMAS);
-			result = toInt(tokens[0]) + toInt(tokens[1]);
+			for (String token : tokens) {
+				result += toInt(token);
+			}
+
 		} else {
 			result = toInt(number);
 		}
