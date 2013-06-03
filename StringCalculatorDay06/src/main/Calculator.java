@@ -13,6 +13,9 @@ public class Calculator {
 		int result = 0;
 		if (number.isEmpty()) {
 			result = 0;
+		} else if (number.contains(",")) {
+			String[] tokens = number.split(",");
+			result = toInt(tokens[0]) + toInt(tokens[1]);
 		} else {
 			result = toInt(number);
 		}
