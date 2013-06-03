@@ -58,4 +58,8 @@ public class CalculatorTest {
 	public void testReturnOfNumberBiggerThan1000() {
 		assertEquals(1, Calculator.add("1,1212"));
 	}
+	@Test
+	public void testReturnOfMultiNumbersBiggerThan1000() {
+		assertEquals(1, Calculator.add("1,123123,123123"));
+	}
 }
