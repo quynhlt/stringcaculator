@@ -27,4 +27,9 @@ public class CalculatorTest {
 	public void testReturnOfMultiNumbersWithCommas() {
 		assertEquals(4, Calculator.add("1,2,1"));
 	}
+
+	@Test
+	public void testReturnOfTwoNumbersWithCommasAndNewline() {
+		assertEquals(6, Calculator.add("1,2\n3"));
+	}
 }
