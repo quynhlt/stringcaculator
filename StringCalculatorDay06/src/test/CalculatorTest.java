@@ -42,4 +42,15 @@ public class CalculatorTest {
 	public void testReturnOfOtherDelimiters() {
 		assertEquals(6, Calculator.add("//&\n1&2&3"));
 	}
+	
+	@Test
+	public void testCallingAddWithANegativeNumber() {
+		try {
+			assertEquals(0, Calculator.add("-1,2"));
+			fail("Exception");
+		} catch (RuntimeException e) {
+			assertEquals("Negatives not allowed", e.getMessage());
+		}
+
+	}
 }
