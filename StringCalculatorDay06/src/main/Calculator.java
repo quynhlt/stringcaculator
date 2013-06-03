@@ -46,7 +46,11 @@ public class Calculator {
 	}
 
 	private static int toInt(String number) {
-		return Integer.parseInt(number);
+		int newInt = Integer.parseInt(number);
+		if (newInt < 0) {
+			throw new RuntimeException("Negatives not allowed");
+		}
+		return newInt;
 	}
 
 }
