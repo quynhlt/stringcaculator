@@ -13,6 +13,8 @@ public class Calculator {
 		int result = 0;
 		if (string.isEmpty()) {
 			result = 0;
+		} else {
+			result = Integer.parseInt(string);
 		}
 		return result;
 	}
