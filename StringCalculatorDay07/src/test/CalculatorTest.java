@@ -19,4 +19,8 @@ public class CalculatorTest {
 	public void testReturnOfEmptyString() {
 		assertEquals(0, Calculator.add(""));
 	}
+	@Test
+	public void testReturnOfOneNumber() {
+		assertEquals(1, Calculator.add("1"));
+	}
 }
