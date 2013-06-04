@@ -18,6 +18,8 @@ public class Calculator {
 	private static final String SEPARATE = "//";
 	public static final String ERROR_MESSAGE = "negatives not allowed";
 	private static final int MAXVALUE = 1000;
+	private static final String REGEX_DEFAULT_LENGTH = "//(.)\n(.*)";
+	private static final String REGEX_ANY_LENGTH = "//\\[(.*)\\]\\n(.*)";
 
 	public static int add(String number) {
 		int result = 0;
@@ -35,21 +37,16 @@ public class Calculator {
 	private static String[] getToken(String number) {
 		String[] tokens = null;
 		if (number.startsWith(SEPARATE)) {
-			String regex = "//(.)\n(.*)";
-			Matcher m = Pattern.compile(regex).matcher(number);
-			if (m.find()) {
-				String string1 = m.group(1);
-				String string2 = m.group(2);
-				tokens = string2.split(Pattern.quote(string1));
-			} else {
-				String regex2 = "//\\[(.*)\\]\\n(.*)";
-				Matcher matcher2 = Pattern.compile(regex2).matcher(number);
-				if (matcher2.find()) {
-					String str1 = matcher2.group(1);
-					String str = matcher2.group(2);
-					tokens = str.split(Pattern.quote(str1));
-				}
+			String newDelim = "";
+			String newNumber = "";
+			Matcher matcher = Pattern.compile(REGEX_DEFAULT_LENGTH).matcher(number);
+			if (!matcher.find()) {
+				matcher = Pattern.compile(REGEX_ANY_LENGTH).matcher(number);
+				matcher.find();
 			}
+			newDelim = matcher.group(1);
+			newNumber = matcher.group(2);
+			tokens = newNumber.split(Pattern.quote(newDelim));
 		} else {
 			tokens = number.split(COMMAS + OR + NEWLINE);
 		}
