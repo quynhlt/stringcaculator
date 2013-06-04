@@ -16,7 +16,7 @@ public class Calculator {
 		if (number.isEmpty()) {
 			result = 0;
 		} else if (number.contains(COMMAS)) {
-			String[] tokens = number.split(COMMAS);
+			String[] tokens = getToken(number);
 			for (String token : tokens) {
 				result += toInt(token);
 			}
@@ -24,6 +24,10 @@ public class Calculator {
 			result = Integer.parseInt(number);
 		}
 		return result;
+	}
+
+	private static String[] getToken(String number) {
+		return number.split(COMMAS);
 	}
 
 	private static int toInt(String number) {
