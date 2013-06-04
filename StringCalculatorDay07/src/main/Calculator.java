@@ -9,12 +9,12 @@ package main;
  */
 public class Calculator {
 
-	public static int add(String string) {
+	public static int add(String number) {
 		int result = 0;
-		if (string.isEmpty()) {
+		if (number.isEmpty()) {
 			result = 0;
 		} else {
-			result = Integer.parseInt(string);
+			result = Integer.parseInt(number);
 		}
 		return result;
 	}
