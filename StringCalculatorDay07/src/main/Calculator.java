@@ -10,7 +10,11 @@ package main;
 public class Calculator {
 
 	public static int add(String string) {
-		return 0;
+		int result = 0;
+		if (string.isEmpty()) {
+			result = 0;
+		}
+		return result;
 	}
 
 }
