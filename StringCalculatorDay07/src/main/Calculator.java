@@ -44,6 +44,8 @@ public class Calculator {
 		int newInt = Integer.parseInt(number);
 		if (newInt < 0) {
 			throw new RuntimeException(ERROR_MESSAGE);
+		}else if (newInt > 1000) {
+			newInt = 0;
 		}
 		return newInt;
 	}

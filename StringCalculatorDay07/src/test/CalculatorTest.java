@@ -54,7 +54,7 @@ public class CalculatorTest {
 			assertEquals(Calculator.ERROR_MESSAGE, e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testReturnOfNumbersBiggerThan1000() {
 		assertEquals(1, Calculator.add("1,1235"));
