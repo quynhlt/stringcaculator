@@ -68,4 +68,9 @@ public class CalculatorTest {
 	public void testReturnOfDelimWithAnyLength() {
 		assertEquals(3, Calculator.add("//[,,,]\n1,,,2"));
 	}
+
+	@Test
+	public void testReturnOfMultipleDelimiter() {
+		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
+	}
 }
