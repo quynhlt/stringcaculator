@@ -34,8 +34,9 @@ public class Calculator {
 			String newDelim = number.substring(start, end);
 			String newNumber = number.substring(end + 1, number.length());
 			return newNumber.split(newDelim);
+		} else {
+			return number.split(COMMAS + OR + NEWLINE);
 		}
-		return number.split(COMMAS + OR + NEWLINE);
 	}
 
 	private static int toInt(String number) {
