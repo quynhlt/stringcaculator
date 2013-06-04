@@ -13,6 +13,7 @@ public class Calculator {
 	private static final String OR = "|";
 	private static final String NEWLINE = "\n";
 	private static final String SEPARATE = "//";
+	public static final String ERROR_MESSAGE = "negatives not allowed";
 
 	public static int add(String number) {
 		int result = 0;
@@ -42,7 +43,7 @@ public class Calculator {
 	private static int toInt(String number) {
 		int newInt = Integer.parseInt(number);
 		if (newInt < 0) {
-			throw new RuntimeException("negatives not allowed");
+			throw new RuntimeException(ERROR_MESSAGE);
 		}
 		return newInt;
 	}
