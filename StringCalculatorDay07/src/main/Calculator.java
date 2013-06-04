@@ -3,6 +3,9 @@
  */
 package main;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author quynhlt
  * 
@@ -30,15 +33,27 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
+		String[] tokens = null;
 		if (number.startsWith(SEPARATE)) {
-			int start = SEPARATE.length();
-			int end = number.indexOf(NEWLINE);
-			String newDelim = number.substring(start, end);
-			String newNumber = number.substring(end + 1, number.length());
-			return newNumber.split(newDelim);
+			String regex = "//(.)\n(.*)";
+			Matcher m = Pattern.compile(regex).matcher(number);
+			if (m.find()) {
+				String string1 = m.group(1);
+				String string2 = m.group(2);
+				tokens = string2.split(Pattern.quote(string1));
+			} else {
+				String regex2 = "//\\[(.*)\\]\\n(.*)";
+				Matcher matcher2 = Pattern.compile(regex2).matcher(number);
+				if (matcher2.find()) {
+					String str1 = matcher2.group(1);
+					String str = matcher2.group(2);
+					tokens = str.split(Pattern.quote(str1));
+				}
+			}
 		} else {
-			return number.split(COMMAS + OR + NEWLINE);
+			tokens = number.split(COMMAS + OR + NEWLINE);
 		}
+		return tokens;
 	}
 
 	private static int toInt(String number) {
