@@ -27,7 +27,7 @@ public class Calculator {
 	}
 
 	private static String[] getToken(String number) {
-		return number.split(COMMAS);
+		return number.split(COMMAS+"|\n");
 	}
 
 	private static int toInt(String number) {
