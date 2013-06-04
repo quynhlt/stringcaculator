@@ -59,4 +59,9 @@ public class CalculatorTest {
 	public void testReturnOfNumbersBiggerThan1000() {
 		assertEquals(1, Calculator.add("1,1235"));
 	}
+
+	@Test
+	public void testReturnOfDelimWithAnyLength() {
+		assertEquals(3, Calculator.add("//[***]\n1***2"));
+	}
 }

@@ -14,6 +14,7 @@ public class Calculator {
 	private static final String NEWLINE = "\n";
 	private static final String SEPARATE = "//";
 	public static final String ERROR_MESSAGE = "negatives not allowed";
+	private static final int MAXVALUE = 1000;
 
 	public static int add(String number) {
 		int result = 0;
@@ -44,7 +45,7 @@ public class Calculator {
 		int newInt = Integer.parseInt(number);
 		if (newInt < 0) {
 			throw new RuntimeException(ERROR_MESSAGE);
-		}else if (newInt > 1000) {
+		} else if (newInt > MAXVALUE) {
 			newInt = 0;
 		}
 		return newInt;
