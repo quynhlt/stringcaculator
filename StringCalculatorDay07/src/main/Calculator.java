@@ -29,8 +29,10 @@ public class Calculator {
 
 	private static String[] getToken(String number) {
 		if (number.startsWith(SEPARATE)) {
-			String newDelim = number.substring(2,3);
-			String newNumber = number.substring(4,number.length());
+			int start = SEPARATE.length();
+			int end = number.indexOf(NEWLINE);
+			String newDelim = number.substring(start, end);
+			String newNumber = number.substring(end + 1, number.length());
 			return newNumber.split(newDelim);
 		}
 		return number.split(COMMAS + OR + NEWLINE);
